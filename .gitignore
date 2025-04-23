@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.RDataTmp
+.Ruserdata
+data/spectronaut_output
+data/diann_output
+data/processed/Exp5_HealthyvsCancer_TransformedImputed_ProteinAbundance_Long.csv
+data/processed/olink_lod_calc.csv
