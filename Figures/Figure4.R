@@ -260,14 +260,6 @@ for (i in names(canc1)) {
 olink_PG_imp <- olink_PG_imp %>%
   mutate(across(where(is.numeric), ~ . - median(., na.rm = TRUE)))
 
-##* Save data ----
-fwrite(neat_PG_imp, file = "data/processed/Exp5_PG_Matrix_neat_log2_Imputed_50condition_ImpSeq.csv") 
-fwrite(acid_PG_imp, file = "data/processed/Exp5_PG_Matrix_acid_log2_Imputed_50condition_ImpSeq.csv") 
-fwrite(magnet_PG_imp, file = "data/processed/Exp5_PG_Matrix_magnet_log2_Imputed_50condition_ImpSeq.csv") 
-fwrite(preomics_PG_imp, file = "data/processed/Exp5_PG_Matrix_preomics_log2_Imputed_50condition_ImpSeq.csv") 
-fwrite(seer_PG_imp, file = "data/processed/Exp5_PG_Matrix_seer_log2_Imputed_50condition_ImpSeq.csv") 
-fwrite(olink_PG_imp, file = "data/processed/Exp5_PG_Matrix_olink_log2_Imputed_50condition_ImpSeq.csv") 
-
 
 ##* ROTS DEA ----
 
@@ -338,8 +330,6 @@ counts <- volc_plot %>%
 volc_plot$method <- factor(volc_plot$method,
                            levels = c("neat", "acid", "preomics", "magnet", "seer", "olink"))
 
-write.csv(volc_plot, "data/processed/exp5_AllMethods_DiffExp_normalized_olinkunadjusted_FIXED_1,2FC_50pconditionimputed_Alternative_MoreK.csv")
-volc_plot <- fread("data/processed/exp5_AllMethods_DiffExp_normalized_olinkadjusted_FIXED_1,2FC_50pconditionimputed_Alternative.csv", data.table = F)
 
 ggplot(volc_plot, aes(logfc, neglogpvalue, color = diffexp, size = diffexp)) + 
   geom_point() +
